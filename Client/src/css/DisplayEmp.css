@@ -1,0 +1,62 @@
+.task-container {
+    min-height: 90vh; /* full height look */
+    padding: 30px;
+    background-color: #f7f9fc;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .task-container h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #2c3e50;
+  }
+  
+  .custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .custom-table th,
+  .custom-table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: center;
+    vertical-align: middle;
+  }
+  
+  .custom-table th {
+    background-color: #012528;
+    color: white;
+  }
+  
+  .custom-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .task-select {
+    width: 140px;
+    padding: 5px;
+    font-size: 14px;
+  }
+  
+  .submit-btn {
+    background-color: #098196;
+    border: none;
+    padding: 6px 14px;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .submit-btn:hover {
+    background-color: #076476;
+  }
+  
+  .submit-btn:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
+  }
+  
