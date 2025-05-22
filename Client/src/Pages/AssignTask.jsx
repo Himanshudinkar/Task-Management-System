@@ -8,14 +8,14 @@ import Container from 'react-bootstrap/Container';
 import { message } from 'antd'
 
 const AssignTask = () => {
-  const [mydata, setMydata] = useState([]);
-  const [show, setShow] = useState(false);
-  const [input, setInput] = useState({});
-  const [empId, setEmpId] = useState("");
+  const [mydata, setMydata] = useState([])
+  const [show, setShow] = useState(false)
+  const [input, setInput] = useState({})
+  const [empId, setEmpId] = useState("")
 
   const handleClose = () => {
     setShow(false);
-    setInput({}); // Clear form on close
+    setInput({}); 
   };
 
   const handleShow = (empid) => {
@@ -133,7 +133,7 @@ const AssignTask = () => {
         </Modal.Footer>
       </Modal>
     </Container>
-  );
-};
+  )
+}
 
 export default AssignTask;

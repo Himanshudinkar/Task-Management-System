@@ -5,6 +5,7 @@ import axios from "axios";
 import Button from "react-bootstrap/Button";
 import "../css/Pass.css"
 
+
 const ChangePassword = () => {
     const [input, setInput] = useState({});
     const [empid, setEmpid] = useState("");
@@ -19,6 +20,7 @@ const ChangePassword = () => {
         let name = e.target.name;
         let value = e.target.value;
         setInput(values => ({ ...values, [name]: value }))
+        console.log(input)
     }
 
     const handelSubmit = async () => {
@@ -27,14 +29,16 @@ const ChangePassword = () => {
             const response = await axios.post(api, { empid: empid, ...input });
             message.success("Password successfully changed!");
             console.log(response.data);
-            navigate("/empdashboard");
+            navigate("/empdasboard");
         } catch (error) {
             console.log(error);
+         
         }
     }
 
     return (
         <>
+        
             <div className="passwordChange">
                 <input
                     type="password"

@@ -32,6 +32,7 @@ function App() {
       </Route>
 
       <Route path='/empdasboard' element = {<EmpDashboard/>}>
+       <Route index element = {<DisplayEmpTask/>}/>
         <Route path='/empdasboard/displaytask' element = {<DisplayEmpTask/>}/>
         <Route path='/empdasboard/changepassword' element = {<ChangePassword/>}/>
       </Route>

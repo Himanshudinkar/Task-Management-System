@@ -68,7 +68,7 @@ const ViewTask = () => {
         </table>
       </div>
     </>
-  );
-};
+  )
+}
 
 export default ViewTask;

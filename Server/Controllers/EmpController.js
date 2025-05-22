@@ -45,26 +45,33 @@ const empTaskSubmit =async(req,res)=>{
     }
 }
 
-const passwordChange=async(req,res)=>{
-    const {oldpassword,newpassword,empid}=req.body;
- try {
-     
-        const Data=await EmpModel.findById(empid);
-        console.log(Data)
-        const chkpass= await bcrypt.compare(oldpassword, Data.password);
+const passwordChange = async (req, res) => {
+    const { oldpassword, newpassword, empid } = req.body;
 
-        if(chkpass){
-             const salt = await bcrypt.genSalt();
-             const passwordHash = await bcrypt.hash(newpassword,salt);
-              await EmpModel.findByIdAndUpdate(empid,{password:passwordHash})
-              res.status(200).send({msg:"password updated"})
-        
+    try {
+        const Data = await EmpModel.findById(empid);
+
+        if (!Data) {
+            return res.status(404).send({ msg: "Employee not found" });
         }
- } catch (error) {
-     res.status(400).send({ msg: "old password does not match!!!" });  
- }
 
-}
+        const chkpass = await bcrypt.compare(oldpassword, Data.password);
+
+        if (chkpass) {
+            const salt = await bcrypt.genSalt();
+            const passwordHash = await bcrypt.hash(newpassword, salt);
+            await EmpModel.findByIdAndUpdate(empid, { password: passwordHash });
+            return res.status(200).send({ msg1: "Password updated" });
+        } else {
+            return res.status(400).send({ msg: "Old password is incorrect" });
+        }
+
+    } catch (error) {
+        console.error(error);
+        return res.status(500).send({ msg: "Server error" });
+    }
+};
+
 
 module.exports = {
     emplogin,
